@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>regform</title>
+<script>
+ function validate(){
+    var fname=document.getElementById("fname").value;
+    var dob=document.getElementById("dob").value;
+    var address=document.getElementById("address").value;
+    var gender=document.getElementById("gender").value;
+    var email=document.getElementById("email").value;
+    var mailformat= /^\w+([\\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+    var mobno=document.getElementById("mobno").value;
+    var phoneformat= /^\d{10}$/;
+    var password=document.getElementById("password").value;
+    var cpassword=document.getElementById("cpassword").value;
+
+    if(fname==""){
+      alert("Please enter your Name!");
+      document.form1.fname.focus();
+      return false;
+    }
+    if(dob==""){
+      alert("Please enter your Date of birth!");
+      document.form1.dob.focus();
+      return false;
+    }
+    if(address==""){
+      alert("Address field cannot be empty!");
+      document.form1.address.focus();
+      return false;
+    }
+    if(gender==""){
+      alert("Gender field cannot be empty!");
+      document.form1.gender.focus();
+      return false;
+    }
+    if(email==""){
+      alert("Please enter your Email!");
+      document.form1.email.focus();
+      return false;
+    }
+      else if(!(email.match(mailformat))){
+          alert("Sorry! Invalid Email Address");
+        document.form1.email.focus();
+      return false;
+    }
+    if(mobno==""){
+      alert("Please enter your Mobile Number!");
+      document.form1.mobno.focus();
+      return false;
+    }
+      else if(!(mobno.match(phoneformat))){
+           alert("Invalid mobile number");
+      document.form1.mobno.focus();
+      return false;
+    }
+    if(password==""){
+      alert("Must have a password!");
+      document.form1.password.focus();
+      return false;
+    }
+    if(cpassword=="" || cpassword!=password){
+      alert("Password does not match!");
+      document.form1.cpassword.focus();
+      return false;
+    }
+   return true;
+ }
+</script>
+</head>
+<body>
+<h2 style="text-align:center;font-family:calibri;color:grey;">REGISTERATION FORM</h2>
+<form name="form1" action="" method="post" onsubmit="return validate()">
+<table>
+<tr>
+<td>Full Name:</td>
+<td><input type="text" name="fname" id="fname"></td>
+</tr>
+<tr>
+<td>DOB:</td>
+<td><input type="date" name="dob" id="dob"></td>
+</tr>
+<tr>
+<td>Address:</td>
+<td><textarea name="address" id="address"></textarea></td>
+</tr>
+<tr>
+<td>Gender:</td>
+<td>Male<input type="radio" name="gender" value="male" id="gender">
+Female<input type="radio" name="gender" value="female" id="gender"></td>
+</tr>
+<tr>
+<td>Email:</td>
+<td><input type="email" name="email" id="email" placeholder="Enter your email ID here"></td>
+</tr>
+<tr>
+<td>Mobile No:</td>
+<td><input type="number" name="mobno" id="mobno"></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="password" id="password"></td>
+</tr>
+<tr>
+<td>Confirm Password:</td>
+<td><input type="password" name="cpassword" id="cpassword"></td>
+</tr>
+<tr>
+<td><input type="submit" value="Register"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
